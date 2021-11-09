@@ -49,6 +49,12 @@ function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLogout = () => {
+    cookie.remove("x-access-token");
+    setAnchorEl(null);
+    // send some data to backend to remove cookie
+    window.location.reload();
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -147,7 +153,7 @@ function Header() {
                     حساب کاربری
                   </MenuItem>
                   <MenuItem
-                    onClick={handleClose}
+                    onClick={handleLogout}
                     className={classes.typography}
                   >
                     خروج
