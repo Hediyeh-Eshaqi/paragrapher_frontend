@@ -50,7 +50,6 @@ function Header() {
     setAnchorEl(null);
   };
   const handleLogout = () => {
-    cookie.remove("x-access-token");
     setAnchorEl(null);
     // send some data to backend to remove cookie
     window.location.reload();
