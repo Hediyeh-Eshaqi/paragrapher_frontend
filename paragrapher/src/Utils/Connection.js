@@ -5,7 +5,6 @@ import Cookies from "universal-cookie";
 import {makeURL} from './Common';
 export const Logout = async () => {
     cookie.remove("x-access-token");
-    setAnchorEl(null);
     // send some data to backend to remove cookie
     window.location.reload();
     await axios 

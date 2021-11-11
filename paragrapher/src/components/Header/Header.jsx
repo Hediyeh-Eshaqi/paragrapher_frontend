@@ -30,7 +30,8 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import { useStyles } from "../theme";
 import InputBase from "@material-ui/core/InputBase";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
-import { Hidden } from "@mui/material";
+import { Hidden } from "@material-ui/core";
+import { Logout } from "../../Utils/Connection";
 
 function Header() {
   const [drawerAnchor, setDrawerAnchor] = useState(false);
@@ -50,6 +51,7 @@ function Header() {
     setAnchorEl(null);
   };
   const handleLogout = () => {
+    Logout();
     setAnchorEl(null);
     // send some data to backend to remove cookie
     window.location.reload();
