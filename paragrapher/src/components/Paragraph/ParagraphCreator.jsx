@@ -15,6 +15,8 @@ import {
   ListItemText,
   Card,
 } from "@material-ui/core";
+import TF from "@mui/material/TextField";
+import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { theme } from "../theme";
 import { ThemeProvider } from "@material-ui/styles";
 import { jssPreset } from "@material-ui/styles";
@@ -44,11 +46,11 @@ class ProfileEditor extends React.Component {
     error: false,
     helperText: "",
     communityNames: [],
+    bookOptions: ["سلام خوبی", "هلو همگی", "زندگی یک خرچنگ", "دانلود سطح"],
   };
   componentDidMount() {
     // console.log(this.props.match.params);
     // this.props.history.
-    // console.log("this is a mother fucker", window.location.toString());
     GetCommunities().then((data) => {
       data.data.forEach((element) => {
         this.state.communityNames.push(element.name);
@@ -195,28 +197,35 @@ class ProfileEditor extends React.Component {
                   <Grid item xs={12}>
                     <Grid container spacing={2}>
                       <Grid item lg={6} md={6} xs={12}>
-                        <TextField
-                          variant="filled"
-                          label="نام کتاب"
-                          style={{
-                            direction: "rtl",
-                            textAlign: "right",
-                            width: "100%",
-                          }}
-                          onChange={this.handleBookChange}
-                          value={this.state.book}
-                          inputProps={{
-                            textAlign: "right",
-                            fontFamily: "BYekan",
-                          }}
-
-                          // InputLabelProps={{
-                          //   classes: {
-                          //     root: this.props.classes.labelRoot,
-                          //     shrink: this.props.classes.shrink,
-                          //   },
-                          // }}
-                        />
+                        {/* <Autocomplete
+                          // value={this.state.book}
+                          // onChange={this.handleBookChange}
+                          lable="idk"
+                          options={this.state.bookOptions}
+                          freeSolo
+                          renderInput={(p) => <TF {...p} lable="hi" />}
+                        /> */}
+                        <FormControl>
+                          <TextField
+                            variant="filled"
+                            label="نام کتاب"
+                            select
+                            style={{
+                              direction: "rtl",
+                              textAlign: "right",
+                              width: "100%",
+                            }}
+                            onChange={this.handleBookChange}
+                            value={this.state.book}
+                            inputProps={{
+                              textAlign: "right",
+                              fontFamily: "BYekan",
+                            }}
+                          />
+                          {this.state.bookOptions.map((b) => {
+                            return <MenuItem value={b}>{b}</MenuItem>;
+                          })}
+                        </FormControl>
                       </Grid>
                       <Grid item lg={6} md={6} xs={12}>
                         <TextField
