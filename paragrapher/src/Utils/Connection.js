@@ -529,3 +529,46 @@ export const GetBestCommunities = async (count) => {
     }
     return res;
 }
+export const GetBookSuggestion = async (searchString) => {
+    const address = "/suggestion?type=book&text=" + searchString 
+    let res 
+    await axios
+        .get(makeURL(address))
+        .then((response) => {
+            res = response.data
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+        return res
+
+}
+export const GetAuthorSuggestion = async (searchString) => {
+    const address = "/suggestion?type=author&text=" + searchString
+    let res 
+    await axios
+        .get(makeURL(address))
+        .then((response) => {
+            res = response.data
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+        return res 
+}
+export const GetTagSuggestion = async (searchString) => {
+    const address = "/suggestion?type=tag&text=" + searchString 
+    let res 
+    await axios
+        .get(makeURL(address))
+        .then((response) => {
+            res = response.data
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+        return res
+}

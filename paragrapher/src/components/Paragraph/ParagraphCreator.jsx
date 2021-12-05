@@ -14,6 +14,7 @@ import {
   ListItemIcon,
   ListItemText,
   Card,
+  Menu,
 } from "@material-ui/core";
 import TF from "@mui/material/TextField";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
@@ -47,6 +48,7 @@ class ProfileEditor extends React.Component {
     helperText: "",
     communityNames: [],
     bookOptions: ["سلام خوبی", "هلو همگی", "زندگی یک خرچنگ", "دانلود سطح"],
+    bookSuggestionAnchor: null,
   };
   componentDidMount() {
     // console.log(this.props.match.params);
@@ -222,9 +224,57 @@ class ProfileEditor extends React.Component {
                               fontFamily: "BYekan",
                             }}
                           />
-                          {this.state.bookOptions.map((b) => {
+                          {/* {this.state.bookOptions.map((b) => {
                             return <MenuItem value={b}>{b}</MenuItem>;
-                          })}
+                          })} */}
+                          <Button
+                            onClick={(e) =>
+                              this.setState({
+                                bookSuggestionAnchor: e.currentTarget,
+                              })
+                            }
+                          >
+                            نمایش کتاب ها
+                          </Button>
+                          <Menu
+                            anchorEl={this.state.bookSuggestionAnchor}
+                            keepMounted
+                            open={Boolean(this.state.bookSuggestionAnchor)}
+                            onClose={() =>
+                              this.setState({ bookSuggestionAnchor: null })
+                            }
+                            getContentAnchorEl={null}
+                            anchorOrigin={{
+                              vertical: "bottom",
+                              horizontal: "center",
+                            }}
+                            transformOrigin={{
+                              vertical: "top",
+                              horizontal: "center",
+                            }}
+                          >
+                            <MenuItem
+                              onClick={() =>
+                                this.setState({ bookSuggestionAnchor: null })
+                              }
+                            >
+                              Profile
+                            </MenuItem>
+                            <MenuItem
+                              onClick={() =>
+                                this.setState({ bookSuggestionAnchor: null })
+                              }
+                            >
+                              My account
+                            </MenuItem>
+                            <MenuItem
+                              onClick={() =>
+                                this.setState({ bookSuggestionAnchor: null })
+                              }
+                            >
+                              Logout
+                            </MenuItem>
+                          </Menu>
                         </FormControl>
                       </Grid>
                       <Grid item lg={6} md={6} xs={12}>
