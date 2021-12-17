@@ -28,6 +28,7 @@ import AuthorSearch from "./components/Search/AuthorSearch";
 import ShowBook from "./components/ShowBook/ShowBook";
 import EditBook from "./components/EditBook.jsx";
 // import NewProfile from './components/Profile/NewProfile';
+import Cart from "./components/Cart/Cart";
 function App(props) {
   const [drawerAnchor] = useState(false);
   const [accountBoxTrigger, setAccountBoxTrigger] = useState(false);
@@ -111,6 +112,9 @@ function App(props) {
               </Route>
               <Route path="/community/:handle/EditBook/:handle" exact={true}>
                 <EditBook />
+              </Route>
+              <Route path="/Cart" exact={true}>
+                <Cart/>
               </Route>
             </Switch>
           </div>
