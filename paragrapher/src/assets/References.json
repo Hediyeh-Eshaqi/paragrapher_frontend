@@ -1,5 +1,5 @@
 {
-  "url_address": "http://localhost:5000",
+  "url_address": "http://192.168.43.76:8080",
   "url_register": "/register",
   "url_login": "/login",
   "url_profile": "/profile",

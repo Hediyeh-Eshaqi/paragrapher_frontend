@@ -26,9 +26,9 @@ class Cart extends React.Component {
                             <table id="shoppingCart" class="table table-condensed table-responsive">
                                 <thead>
                                     <tr>
-                                        <th style={{width:"60%"}}>محصول</th>
+                                        <th style={{width:"50%"}}>محصول</th>
                                         <th style={{width:"12%"}}>قیمت</th>
-                                        <th style={{width:"10%"}}>نام اجتماع</th>
+                                        <th style={{width:"20%"}}>نام اجتماع</th>
                                         <th style={{width:"16%"}}></th>
                                     </tr>
                                 </thead>
